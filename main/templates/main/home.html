@@ -1,0 +1,174 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block content %}
+<style>
+    .searchBox {
+        position: fixed;
+        top: 86%;
+        left: 1%;
+        display: flex;
+        max-width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        background: #fff;
+        border-radius: 50px;
+        box-shadow: 0px 0px 5px #fff;
+      }
+      
+      .searchButton1 {
+        color: white;
+        position: absolute;
+        right: 8px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+        border: 0;
+        display: inline-block;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+      }
+
+      .searchButton2 {
+        font-size: 30px;
+        color: white;
+        position: absolute;
+        right: 80px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+        border: 0;
+        display: inline-block;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+      }
+
+      .searchButton3 {
+        position: fixed;
+        top: 85%;
+        left: 92%;
+        color: white;
+        font-size: 70px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+        border: 0;
+        display: inline-block;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        box-shadow: 0px 0px 5px #fff;
+      }
+
+      button:hover {
+        color: #fff;
+        background-color: #1A1A1A;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+        transform: translateY(-3px);
+      }
+
+      button:active {
+        box-shadow: none;
+        transform: translateY(0);
+      }
+      
+      .searchInput {
+        width: 93%;
+        border: none;
+        background: none;
+        outline: none;
+        color: #111;
+        font-size: 15px;
+        padding: 24px 46px 24px 26px;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        max-width: 400px;
+        background-color: rgb(7 16 45);
+        background: linear-gradient(to top right, rgb(7 16 45), rgb(58 60 84));
+        background: -webkit-linear-gradient(to top right, rgb(7 16 45), rgb(58 60 84)); 
+        display: grid;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgb(84 90 106);
+      }
+
+      .card:hover {
+        color: #fff;
+        background-color: #1A1A1A;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+        transform: translateY(-3px);
+      }
+      
+      .small-text, .title,.desc {
+        font-weight: 600;
+      }
+      
+      .title,.desc {
+        margin: 8px 0;
+      }
+      
+      .small-text {
+        color: #488aec;
+        font-size: 14px;
+      }
+      
+      .title {
+        color: #fff;
+        font-size: 26px;
+        line-height: 26px;
+      }
+      
+      .desc {
+        color: rgb(151 153 167);
+        font-size: 13px;
+      }
+
+    .progress {
+        width: 100%;
+        height: 20px;
+        background-color: #f3f3f3;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        text-align: center;
+        line-height: 20px;
+        color: #fff;
+        background-color: #007bff; /* Default progress bar color */
+        transition: width 0.3s ease-in-out;
+        border-radius: 5px;
+    }
+</style>
+    <div class="grid">
+        {% for task in tasks %}
+        {% if not task.status%}
+        <div class="card">
+            <span class="small-text">{{ task.deadline }}</span>
+            <span class="title">{{ task.task_heading }} </span>
+            <span class="desc">{{task.task_details}}</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% for task in tasks %}
+        {% if task.status%}
+        <div class="card">
+            <span class="small-text">{{ task.deadline }}</span>
+            <span class="title">{{ task.task_heading }} </span>
+            <span class="desc">{{task.task_details}}</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

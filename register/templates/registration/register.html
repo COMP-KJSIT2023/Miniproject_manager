@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Create account {%endblock %}
+{% block content %}
+      <div class="form-container">
+        <form method="POST" class="form-group">
+          <p class="heading">User Registration</p>
+            {% csrf_token %}
+            {{form}}
+            <label for="text">Department:</label>
+            <select id="dropdown2" name="department" class="custom-dropdown"required>
+              <option value="">----------Select Department----------</option>
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Artificial Intelligence and Data science">Artificial Intelligence and Data science</option>
+              <option value="Electronics and Telecommunications">Electronics and Telecommunications</option>
+          </select>
+          <label for="text">Year:</label>
+          <select id="dropdown2" name="year" class="custom-dropdown"required>
+              <option value="">----------Select year----------</option>
+              <option value="First year">First year</option>
+              <option value="Second year">Second year</option>
+              <option value="Third year">Third year</option>
+              <option value="Last year">Last year</option>
+          </select>
+          <label for="text">Type of project :</label>
+            <select id="dropdown3" name="type_of_project" class="custom-dropdown"required>
+                <option value="">----------Select type----------</option>
+                <option value="Mini Project">Mini Project</option>
+                <option value="Minor Project">Minor Project</option>
+                <option value="Major Project">Major Project</option>
+                <option value="Other">Other</option>
+            </select>
+              <label for="text">Supervisor code:</label>
+              <input type="text" name="Supervisor" placeholder="Enter code">
+              <label for="text">Project name:</label>
+              <input type="text" name="Project" placeholder="Enter name">
+            <button type="submit" id="button">Join</button>
+        </form>
+        </div>
+{% endblock %}

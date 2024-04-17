@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {background: #f1f1f1}
+
+            .top-nav {
+                height: 80px;
+                width: 100%;
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: start;
+                justify-content: center;
+                background-color: #c70609;
+                color: #fff;
+            }
+
+            .top-nav a{
+                padding: 20px 180px 0px 10px;
+                font-size: 30px;
+                text-decoration: none;
+                color: #fff;
+                display: block;
+            }
+
+            .main {
+                margin-top: 110px;
+            }
+            .icon-button {
+                position: fixed;
+                top: 4%;
+                left: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                color: #333333;
+                background: #f1f1f1;
+                border: none;
+                outline: none;
+                border-radius: 50%;
+              }
+              
+              .icon-button:hover {
+                cursor: pointer;
+                border: 2px solid transparent;
+                border-color: white;
+                background-color: #c70609;
+                color: #fff;
+              }
+              
+              .icon-button:active {
+                background: #cccccc;
+              }
+
+        </style>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{% block title %}Main site{% endblock %}
+        </title>
+    </head>
+    
+    <body>
+        <div class="top-nav">
+            <a href=""><button type="button" class="icon-button">
+                <span class="material-icons">notifications</span>
+              </button>
+            </a>
+            <a href="/super/add_task/">ADD TASK</a>
+            <a href="/logout/">LOGOUT</a>
+            <a href="/super/profile/">PROFILE PAGE</a>
+        </div>
+        <div class="main">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>

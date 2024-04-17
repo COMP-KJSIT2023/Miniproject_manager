@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Create account {%endblock %}
+{% block content %}
+<style>
+</style>
+        <div class="form-container">
+        <form method="POST" class="form-group">
+            <p class="heading">Supervisor Registration</p>
+            {% csrf_token %}
+                {{form}}
+                    <label for="text">Designation:</label>
+                    <select id="dropdown1" name="designation" class="custom-dropdown" required>
+                        <option value="">----------Select Designation---------</option>
+                        <option value="Assitant Professor">Assitant Professor</option>
+                        <option value="Associate Professor">Associate Professor</option>
+                        <option value="Professor">Professor</option>
+                    </select>
+                    <label for="text">Department:</label>
+                    <select id="dropdown2" name="department" class="custom-dropdown"required>
+                        <option value="">----------Select Department----------</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Artificial Intelligence and Data science">Artificial Intelligence and Data science</option>
+                        <option value="Electronics and Telecommunications">Electronics and Telecommunications</option>
+                    </select>
+                <button type="submit" id="button">Join</button>
+        </form>
+        </div> 
+{% endblock %} 

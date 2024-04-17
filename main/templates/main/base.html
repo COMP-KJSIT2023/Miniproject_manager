@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 44%, rgba(71,71,90,1) 100%, rgba(46,40,56,1) 100%, rgba(0,212,255,1) 100%);
+            }
+
+            .top-nav {
+                height: 80px;
+                width: 100%;
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+                display: flex;
+                background-color: #111;
+            }
+
+            .top-nav a {
+                color: #fff; /* Set text color */
+                text-decoration: none; /* Remove underline */
+                margin-right: 20px; /* Add some space between links */
+                font-size: 16px; /* Set font size */
+            }
+
+            .main {
+                margin-top: 110px;
+            }
+            .icon-button {
+                position: fixed;
+                top: 4%;
+                left: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                color: #333333;
+                background: #dddddd;
+                border: none;
+                outline: none;
+                border-radius: 50%;
+              }
+              
+              .icon-button:hover {
+                cursor: pointer;
+              }
+              
+              .icon-button:active {
+                background: #cccccc;
+              }
+
+        </style>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{% block title %}Main site{% endblock %}
+        </title>
+    </head>
+    
+    <body>
+        <div class="top-nav">
+            <h2>{{ project.project_name }}</h2>
+            <a href="/notif/"><button type="button" class="icon-button">
+                <span class="material-icons">notifications</span>
+              </button>
+            </a>
+            <a href="/logout/">Logout</a>
+            <a href="/profile/">Profile</a>
+        </div>
+        <div class="main">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>

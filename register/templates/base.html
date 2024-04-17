@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                background: #f1f1f1;
+              }   
+
+              .form-container {
+                top: 10%;
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                align-content: start;
+                justify-content: center;
+              }
+              .form-group {
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                justify-content: center;
+                background-color: #faf0f0;
+                padding: 30px 30px 30px 30px;
+                box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+                position: relative;
+                overflow: hidden;
+                border-radius: 15px;
+              }
+
+              .heading {
+                align-self: center;
+                font-size: 2em;
+                color: #c70609;
+                font-weight: 700;
+                margin: 5px 0 10px 0;
+                z-index: 2;
+              }
+              
+              
+              .form-group input {
+                width: 100%;
+                height: 30px;
+                z-index: 2;
+                position: relative;
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid rgb(173, 173, 173);
+                margin: 10px 0;
+                color: black;
+                font-size: .8em;
+                font-weight: 500;
+                box-sizing: border-box;
+                padding-left: 30px;
+              }
+              
+              .form-group input::focus {
+                outline: none;
+                border-bottom: 2px solid rgb(199, 114, 255);
+              }
+              
+              .form-group label {
+                position: relative;
+                z-index: 2;
+                color: #c70609;
+                font-size: 1.25em;
+                font-weight: 500;
+              }
+              
+            
+              #button {
+                z-index: 2;
+                position: relative;
+                width: 100%;
+                border: none;
+                background-color: #fff;
+                height: 30px;
+                color: #111;
+                font-size: .8em;
+                font-weight: 500;
+                letter-spacing: 1px;
+                margin: 10px;
+                cursor: pointer;
+                border: 2px solid transparent;
+                border-color: #c70609;
+                border-radius: 5px;
+              }
+              
+              #button:hover {
+                border-color: white;
+                background-color: #c70609;
+                color: #fff;
+              }
+
+                .custom-dropdown {
+                background-color: #faf0f0;
+                border: none;
+                color: #333;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                width: 100%;
+                max-width: 100%;
+                border: 2px;
+                border-color: #c70609;
+                }
+
+                .custom-dropdown option {
+                background-color: #fff;
+                color: #333;
+                }
+
+                .custom-dropdown:hover {
+                background-color: #fff;
+                }
+
+            .top-nav {
+                height: 80px;
+                width: 100%;
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: start;
+                justify-content: center;
+                background-color: #c70609;
+                color: #fff;
+            }
+
+            .top-nav a{
+                padding: 20px 180px 0px 10px;
+                font-size: 30px;
+                text-decoration: none;
+                color: #fff;
+                display: block;
+            }
+
+            .main {
+                margin-top: 110px;
+            }
+            
+        </style>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{% block title %}Main site{% endblock %}
+        </title>
+    </head>
+    
+    <body>
+        <div class="top-nav">
+            <a href="/login/">Login</a>
+            <a href="/supervisor/">Supervisor</a>
+            <a href="/register/">User</a>
+            <a href="#">Co-ordinator</a>
+        </div>
+        <div class="main">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>
